@@ -35,8 +35,6 @@ Ball's Alive State: The ball should remain alive until it falls below the screen
 
 Game Over Mechanism: A condition to end the game when the ball is lost (falls off the screen).
 
-YOUR ANSWERS HERE
-
 ### Extra Features
 Bounce(additional): Ball bounces with based on the where it hits the paddle
 
@@ -48,7 +46,6 @@ Lives: The player has a limited number of lives (balls), and once all lives are 
 
 Pause and play Button: A button to either stop or resume gameplay
 
-YOUR ANSWERS HERE
 
 ### Array Usage
 How will you be using arrays in this project?
