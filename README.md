@@ -88,7 +88,7 @@ CLASS Ball
      - The angle is used to adjust the ball’s velocity in both the x and y directions, so that the ball reflects 
        at the correct angle (straight up if in the center, and more angled if near the edges).
   - reset(): Resets ball position if it goes out of bounds (game over).
-  - draw(): Draws the ball on the screen.
+  - display(): Draws the ball on the screen.
 
 
 CLASS Paddle (Plate)
@@ -106,7 +106,7 @@ CLASS Paddle (Plate)
     Calculates the distance between the ball’s current x position and the left edge of the paddle. This distance 
     will be used in the bounce calculation.
 
-  - draw():
+  - diaply():
     Draws the paddle at its current position on the screen.
 
 
@@ -124,17 +124,17 @@ CLASS Block
   - destroy():
     Marks the block as destroyed (e.g., changing isAlive to False).
 
-  - draw():
+  - diaplay():
     Draws the block at its current position on the screen.
 
-Class Block
+Class Powerup
 - Instance Variables:
   - type: The type of powerup (e.g., extra ball, wider paddle, faster ball).
   - position (x, y): Position of the powerup on the screen.
 - Methods:
   - activate(): Activates the powerup effect (e.g., change paddle size).
   - move(): Moves the powerup down the screen.
-  - draw(): Draws the powerup on the screen.
+  - display(): Draws the powerup on the screen.
 
  Driver file 
  1. Ball and Tile (Block) Interaction
