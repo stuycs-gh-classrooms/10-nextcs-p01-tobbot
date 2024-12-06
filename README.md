@@ -74,11 +74,13 @@ What classes will you be creating for this project? Include the instance variabl
 
 CLASS Ball
 - Instance variables:
-  - position (x, y): The current position of the ball.
-  - velocity (vx, vy): The speed and direction of the ball.
-  - alive (boolean): Tracks if the ball is still in play.
+  - PVector center: The current position of the ball.
+  - PVector v: The speed and direction of the ball.
+  - boolean alive: Tracks if the ball is still in play.
+  - color c: Represents the color of the ball. 
 - METHODS
   - move(): Updates the ball's position based on velocity.
+  - setColor(): Sets the color of the ball.
   - checkCollision(): Checks for collisions with blocks, paddle, or walls.
   - bounce(): Changes the direction of the ball after hitting a block, paddle, or wall.
   - bounce(paddle):
