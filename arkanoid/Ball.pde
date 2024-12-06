@@ -32,4 +32,4 @@ class Ball {
     fill(c);
     circle(center.x, center.y, 10);
   }//display
-}
+}//Ball
