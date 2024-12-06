@@ -2,10 +2,11 @@ class Ball {
 
   //instance variables
   PVector center;
-  PVector v;
+  PVector v; //speed and direction
   boolean alive;
   color c;
-
+  
+  //constructors
   void move() {
     center.x = center.x + (int) v.x;
     center.y = center.y + (int) v.y;
@@ -13,7 +14,7 @@ class Ball {
   
   void setColor(color newColor) {
     c = newColor;
-  }
+  }//setColor
 
   void checkCollison() {
   }//checkCollison
