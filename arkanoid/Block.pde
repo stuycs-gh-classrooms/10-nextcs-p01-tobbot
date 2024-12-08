@@ -4,20 +4,22 @@ class Block {
   boolean isAlive;
   PVector block; //Store coordinates
 
-  //Contructors
   Block(PVector block, int w, int h) {
-    w = this.w;
-    h = this.h;
-    block = new PVector(block.x, block.y);
-  } // Block
-
-  boolean checkHit() {
-    return true; 
-  } // checkhit
+    this.block = block;
+    this.w = w;
+    this.h = h;
+    this.isAlive = true; 
+  }//block 
 
   void destroy() {
-    if (checkHit()) {
-      isAlive = false ;
-    } // Set Boolean
-  } // destroy
-} //Ball
+    isAlive = false; 
+  }//destroy
+
+  void display() {
+    if (isAlive) {
+      fill(255, 0, 0); 
+      rectMode(CENTER);  //make the x,y be the rect center 
+      rect(block.x, block.y, w, h);
+    } //Boolean
+  } //display
+}//block
