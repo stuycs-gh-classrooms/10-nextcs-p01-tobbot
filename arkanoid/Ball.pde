@@ -5,6 +5,7 @@ class Ball {
   PVector v; //speed and direction
   color c;
   int size;
+  int lastCollisionFrame = 0;
 
   Ball(PVector bcenter, PVector bv, color bc, int bsize) {
     center = bcenter;
@@ -57,7 +58,7 @@ class Ball {
   void checkCollisions(Paddle paddle, Block[][] blocks) {
     // Ball collision with the paddle, must be within bounds of the paddle
     if (checkPaddleCollision(paddle)) {
-      bounceOffPaddle(paddle); 
+      bounceOffPaddle(paddle);
     }//boolean
 
     // Ball collision with blocks
@@ -93,11 +94,13 @@ class Ball {
     float blockTop = block.center.y - block.h / 2;
     float blockBottom = block.center.y + block.h / 2;
 
-    // All conditions are true inside or along the sides of a block (aka collide with a block). 
+    // All conditions are true inside or along the sides of a block (aka collide with a block).
     if (ballRight > blockLeft && ballLeft < blockRight &&
-      ballBottom > blockTop && ballTop < blockBottom) { 
-      v.x *= -1;  
-      v.y *= -1;  
+      ballBottom > blockTop && ballTop < blockBottom &&
+      frameCount - lastCollisionFrame >= 1) {
+      lastCollisionFrame = frameCount;
+      v.x *= -1;
+      v.y *= -1;
     }
   }//bounceOffBlock
 
@@ -106,5 +109,5 @@ class Ball {
     center = new PVector(width / 2, height - 200);
     v = new PVector(3, -3);  // Reset to initial velocity
     alive = true;
-  }
+  }//reset
 }

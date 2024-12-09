@@ -6,6 +6,7 @@ int BLOCK_HEIGHT;
 int lives = 1;
 int numFrame = 60;
 boolean alive;
+int time;
 
 Ball ball;
 Paddle paddle;
