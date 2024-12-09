@@ -6,12 +6,12 @@ class Ball {
   color c;
   int size;
 
-  Ball(PVector center, PVector v, boolean alive, color c, int size) {
-    this.center = center;
-    this.v = v;
-    this.alive = alive;
-    this.c = c;
-    this.size = size;
+  Ball(PVector bcenter, PVector bv, boolean balive, color bc, int bsize) {
+    center = bcenter;
+    v = bv;
+    alive = balive;
+    c = bc;
+    size = bsize;
   } //contructor
 
   void move() {
@@ -20,17 +20,17 @@ class Ball {
     // Ball bouncing off the left and right walls
     if (center.x - size / 2 < 0 || center.x + size / 2 > width) {
       v.x *= -1;  // Invert the horizontal velocity
-    }// boolean
+    }
 
     // Ball bouncing off the top wall
     if (center.y - size / 2 < 0) {
       v.y *= -1;  // Invert the vertical velocity
-    }//boolean
+    }
 
     // Ball falling below the screen
     if (center.y + size / 2 > height) {
       alive = false;  // Ball has fallen, game over
-    }//boolean
+    }
   }//move
 
   void display() {
@@ -40,10 +40,10 @@ class Ball {
 
   // Check if ball has hit the block, within the perimeter of the block
   boolean checkBlockCollision(Block block) {
-    return (center.x + size / 2 > block.block.x - block.w / 2 &&
-      center.x - size / 2 < block.block.x + block.w / 2 &&
-      center.y + size / 2 > block.block.y - block.h / 2 &&
-      center.y - size / 2 < block.block.y + block.h / 2);
+    return (center.x + size / 2 > block.center.x - block.w / 2 &&
+      center.x - size / 2 < block.center.x + block.w / 2 &&
+      center.y + size / 2 > block.center.y - block.h / 2 &&
+      center.y - size / 2 < block.center.y + block.h / 2);
   }//checkBlockCollision
 
   //Check if ball has hit the paddle, within the range of the paddle
@@ -68,9 +68,9 @@ class Ball {
         if (block.isAlive && checkBlockCollision(block)) {
           block.destroy();
           bounceOffBlock(block);  // Handle bounce off block
-        }//boolean
-      }//for loop, col
-    }//for loop, row
+        }
+      }
+    }
   }//checkCollisions
 
   // Handle ball bounce from the paddle
@@ -89,10 +89,10 @@ class Ball {
     float ballTop = center.y - size / 2;
     float ballBottom = center.y + size / 2;
 
-    float blockLeft = block.block.x - block.w / 2;
-    float blockRight = block.block.x + block.w / 2;
-    float blockTop = block.block.y - block.h / 2;
-    float blockBottom = block.block.y + block.h / 2;
+    float blockLeft = block.center.x - block.w / 2;
+    float blockRight = block.center.x + block.w / 2;
+    float blockTop = block.center.y - block.h / 2;
+    float blockBottom = block.center.y + block.h / 2;
 
     // Check horizontal collision
     if (ballRight > blockLeft && ballLeft < blockRight &&

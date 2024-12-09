@@ -3,7 +3,7 @@ int NUM_COLS = 8;
 int BALL_SIZE = 20;
 int BLOCK_WIDTH;
 int BLOCK_HEIGHT;
-int lives = 3;
+int lives = 1;
 
 Ball ball;
 Paddle paddle;
@@ -70,5 +70,3 @@ void draw() {
     }//for loop col
   }//for loop row
 }//draw
-
-

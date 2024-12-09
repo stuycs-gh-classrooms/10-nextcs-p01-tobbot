@@ -4,11 +4,11 @@ class Paddle {
   int w, h;
   color c;
 
-  Paddle(PVector center, int w, int h, color c) {
-    this.center = center;
-    this.w = w;
-    this.h = h;
-    this.c = c;
+  Paddle(PVector pcenter, int pw, int ph, color pcolor) {
+    center = pcenter;
+    w = pw;
+    h = ph;
+    c = pcolor;
   }//constructors
 
   void moveWithMouse() {
