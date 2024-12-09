@@ -1,8 +1,8 @@
 class Ball {
+  
   //instance variables
   PVector center;
   PVector v; //speed and direction
-  boolean alive;
   color c;
   int size;
 
@@ -15,7 +15,7 @@ class Ball {
   } //contructor
 
   void move() {
-    center.add(v);  // ".add" is used to add vectors
+    center.add(v);  //add vectors
 
     // Ball bouncing off the left and right walls
     if (center.x - size / 2 < 0 || center.x + size / 2 > width) {
@@ -30,7 +30,6 @@ class Ball {
     // Ball falling below the screen
     if (center.y + size / 2 > height) {
       alive = false;  // Ball has fallen, game over
-      paddle.alive = false;
     }
   }//move
 
@@ -50,9 +49,8 @@ class Ball {
   //Check if ball has hit the paddle, within the range of the paddle
   boolean checkPaddleCollision(Paddle paddle) {
     return (center.y + size / 2 > paddle.center.y - paddle.h / 2 &&
-      center.y - size / 2 < paddle.center.y + paddle.h / 2 &&
-      center.x > paddle.center.x - paddle.w / 2 &&
-      center.x < paddle.center.x + paddle.w / 2);
+      center.x + size / 2 > paddle.center.x - paddle.w / 2 &&
+      center.x - size / 2 < paddle.center.x + paddle.w / 2);
   }//checkPaddleCollision
 
   // Check collisions with paddle and blocks

@@ -5,6 +5,7 @@ int BLOCK_WIDTH;
 int BLOCK_HEIGHT;
 int lives = 1;
 int numFrame = 60;
+boolean alive;
 
 Ball ball;
 Paddle paddle;
@@ -40,7 +41,7 @@ void draw() {
   paddle.display();
 
   // Move and display the ball
-  if (ball.alive) {
+  if (alive) {
     ball.move();
     ball.display();
 
@@ -59,7 +60,7 @@ void draw() {
     }
   }
   
-  if (!ball.alive) {
+  if (!alive) {
     // Game over condition if the ball falls off the screen
     if (lives > 1) {
       ball.reset();

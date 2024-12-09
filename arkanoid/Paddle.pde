@@ -1,16 +1,15 @@
 class Paddle {
+  
   //instance variables
   PVector center;
   int w, h;
   color c;
-  boolean alive;
 
   Paddle(PVector pcenter, int pw, int ph, color pcolor) {
     center = pcenter;
     w = pw;
     h = ph;
     c = pcolor;
-    alive = true;
   }//constructors
 
   void moveWithMouse() {

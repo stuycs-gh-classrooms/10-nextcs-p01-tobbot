@@ -1,8 +1,9 @@
 class Block {
-  // Instance Variables
-  int w, h; // The dimensions
+  
+  //instance Variables
+  int w, h; //dimensions
   boolean isAlive;
-  PVector center; //Store coordinates
+  PVector center; 
 
   Block(PVector bcenter, int bw, int bh) {
     center = bcenter;
