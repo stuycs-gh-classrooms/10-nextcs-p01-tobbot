@@ -94,10 +94,14 @@ class Ball {
     float blockTop = block.center.y - block.h / 2;
     float blockBottom = block.center.y + block.h / 2;
 
-    // All conditions are true inside or along the sides of a block (aka collide with a block).
+/*
+The first four conditions are true inside or along the sides of a block (aka collide 
+with a block). At least one frame must have passed before a ball can bounce again. This
+avoids bouncing the ball twice when it collides with two tiles at once. 
+*/
     if (ballRight > blockLeft && ballLeft < blockRight &&
       ballBottom > blockTop && ballTop < blockBottom &&
-      frameCount - lastCollisionFrame >= 1) {
+      frameCount - lastCollisionFrame >= 1) { 
       lastCollisionFrame = frameCount;
       v.x *= -1;
       v.y *= -1;
