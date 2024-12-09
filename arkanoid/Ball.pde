@@ -6,12 +6,12 @@ class Ball {
   color c;
   int size;
 
-  Ball(PVector bcenter, PVector bv, boolean balive, color bc, int bsize) {
+  Ball(PVector bcenter, PVector bv, color bc, int bsize) {
     center = bcenter;
     v = bv;
-    alive = balive;
     c = bc;
     size = bsize;
+    alive = true;
   } //contructor
 
   void move() {
@@ -30,6 +30,7 @@ class Ball {
     // Ball falling below the screen
     if (center.y + size / 2 > height) {
       alive = false;  // Ball has fallen, game over
+      paddle.alive = false;
     }
   }//move
 
@@ -103,14 +104,14 @@ class Ball {
     // Check vertical collision
     if (ballBottom > blockTop && ballTop < blockBottom &&
       ballRight > blockLeft && ballLeft < blockRight) {
-        v.y *= -1;  // Reverse vertical velocity if hitting top or bottom of the block
+      v.y *= -1;  // Reverse vertical velocity if hitting top or bottom of the block
     }
   }
 
   // Reset ball position if lost
   void reset() {
-    center.set(width / 2, height - 200);
-    v.set(3, -3);  // Reset to initial velocity
+    center = new PVector(width / 2, height - 200);
+    v = new PVector(3, -3);  // Reset to initial velocity
     alive = true;
   }
 }

@@ -8,18 +8,18 @@ class Block {
     center = bcenter;
     w = bw;
     h = bh;
-    isAlive = true; 
+    isAlive = true;
   }//block
 
   void destroy() {
-    isAlive = false; 
+    isAlive = false;
   }//destroy
 
   void display() {
     if (isAlive) {
-      fill(255, 0, 0); 
-      rectMode(CENTER);  //make the x, y be the rect center 
+      fill(255, 0, 0);
+      rectMode(CENTER);  //make the x, y be the rect center
       rect(center.x, center.y, w, h);
-    } 
+    }
   }//display
 }//block
