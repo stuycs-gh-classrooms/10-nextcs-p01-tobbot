@@ -1,5 +1,5 @@
 class Ball {
-  
+
   //instance variables
   PVector center;
   PVector v; //speed and direction
@@ -57,16 +57,16 @@ class Ball {
   void checkCollisions(Paddle paddle, Block[][] blocks) {
     // Ball collision with the paddle, must be within bounds of the paddle
     if (checkPaddleCollision(paddle)) {
-      bounceOffPaddle(paddle);  // Handle bounce off paddle
+      bounceOffPaddle(paddle); 
     }//boolean
 
     // Ball collision with blocks
     for (int row = 0; row < blocks.length; row++) {
       for (int col = 0; col < blocks[row].length; col++) {
-        Block block = blocks[row][col];
-        if (block.isAlive && checkBlockCollision(block)) {
-          block.destroy();
-          bounceOffBlock(block);  // Handle bounce off block
+        Block bk = blocks[row][col];
+        if (bk.isAlive && checkBlockCollision(bk)) {
+          bk.destroy();
+          bounceOffBlock(bk);  // Handle bounce off block
         }
       }
     }
@@ -76,7 +76,7 @@ class Ball {
   void bounceOffPaddle(Paddle paddle) {
     // Bounce direction based on where the ball hits the paddle
     float hitPos = (center.x - paddle.center.x) / (paddle.w / 2);  // Proportional distance from the center
-    v.x = hitPos * 5;  // Set horizontal speed based on the hit position
+    v.x = hitPos * 5; // Set horizontal speed based on the hit position
     v.y *= -1;  // Reverse vertical speed (bounce upwards)
   }//bounce
 
@@ -93,18 +93,13 @@ class Ball {
     float blockTop = block.center.y - block.h / 2;
     float blockBottom = block.center.y + block.h / 2;
 
-    // Check horizontal collision
+    // All conditions are true inside or along the sides of a block (aka collide with a block). 
     if (ballRight > blockLeft && ballLeft < blockRight &&
-      ballBottom > blockTop && ballTop < blockBottom) {
-      v.x *= -1;  // Reverse horizontal velocity if hitting left or right of the block
-    }//boolean
-
-    // Check vertical collision
-    if (ballBottom > blockTop && ballTop < blockBottom &&
-      ballRight > blockLeft && ballLeft < blockRight) {
-      v.y *= -1;  // Reverse vertical velocity if hitting top or bottom of the block
+      ballBottom > blockTop && ballTop < blockBottom) { 
+      v.x *= -1;  
+      v.y *= -1;  
     }
-  }
+  }//bounceOffBlock
 
   // Reset ball position if lost
   void reset() {
