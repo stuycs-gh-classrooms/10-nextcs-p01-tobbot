@@ -1,5 +1,5 @@
 class Paddle {
-  
+
   //instance variables
   PVector center;
   int w, h;

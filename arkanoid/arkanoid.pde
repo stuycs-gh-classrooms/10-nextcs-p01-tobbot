@@ -3,18 +3,28 @@ int NUM_COLS = 8;
 int BALL_SIZE = 20;
 int BLOCK_WIDTH;
 int BLOCK_HEIGHT;
-int lives = 1;
-int numFrame = 60;
+
+int lives = 3;
 boolean alive;
+int numFrame = 60;
 int time;
+
+PShape grayHeart;
+PShape redHeart;
 
 Ball ball;
 Paddle paddle;
 Block[][] blocks;
+Life hearts;
 
 void setup() {
   size(600, 500);
   frameRate(numFrame); //temp
+
+  //load shapes to indicate lives
+  grayHeart = loadShape("images/gray_heart.svg");
+  redHeart = loadShape("images/red_heart.svg");
+
 
   BLOCK_WIDTH = width / NUM_COLS;
   BLOCK_HEIGHT = height / 10;
@@ -24,6 +34,9 @@ void setup() {
 
   // Create the paddle
   paddle = new Paddle(new PVector(width / 2, height - 20), 100, 10, color(0, 255, 0));
+
+  // Create the hearts
+  hearts = new Life(lives);
 
   // Initialize blocks
   blocks = new Block[NUM_ROWS][NUM_COLS];
@@ -60,7 +73,7 @@ void draw() {
       } //boolean
     }
   }
-  
+
   if (!alive) {
     // Game over condition if the ball falls off the screen
     if (lives > 1) {
