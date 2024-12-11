@@ -74,9 +74,9 @@ void draw() {
     }//columns
   }//rows
   
+  //temporary shapes
   grayHeart.enableStyle();
   redHeart.enableStyle();
-  shape(redHeart, 10 , 10 , 100, 100);
   
   if (!alive) {
     // Game over condition if the ball falls off the screen
