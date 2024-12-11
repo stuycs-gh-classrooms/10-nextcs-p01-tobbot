@@ -18,7 +18,7 @@ Block[][] blocks;
 Life hearts;
 
 void setup() {
-  size(600, 500);
+  size(600, 600);
   frameRate(numFrame); //temp
 
   //load shapes to indicate lives
@@ -43,8 +43,8 @@ void setup() {
   for (int row = 0; row < NUM_ROWS; row++) {
     for (int col = 0; col < NUM_COLS; col++) {
       blocks[row][col] = new Block(new PVector(col * BLOCK_WIDTH + BLOCK_WIDTH / 2, row * BLOCK_HEIGHT + BLOCK_HEIGHT / 2), BLOCK_WIDTH, BLOCK_HEIGHT);
-    }//for loop, col
-  }//for loop, row
+    }//columns
+  }//rows
 }//setup
 
 void draw() {
@@ -71,9 +71,13 @@ void draw() {
         block.display();
         ball.checkBlockCollision(block);  // Check if the ball hits this block
       } //boolean
-    }
-  }
-
+    }//columns
+  }//rows
+  
+  grayHeart.enableStyle();
+  redHeart.enableStyle();
+  shape(redHeart, 10 , 10 , 100, 100);
+  
   if (!alive) {
     // Game over condition if the ball falls off the screen
     if (lives > 1) {
@@ -86,5 +90,6 @@ void draw() {
       textAlign(CENTER, CENTER);
       text("Game Over", width / 2, height / 2);
     }
-  }
+  }//boolean
+  
 }//draw
